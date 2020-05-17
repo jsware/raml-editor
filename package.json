@@ -1,26 +1,30 @@
 {
-  "name": "api-designer-fs",
+  "name": "raml-editor",
   "version": "1.0.0",
-  "description": "This is a version of MuleSoft's API designer that interacts directly with your filesystem.",
-  "main": "index.js",
+  "description": "This is a version of MuleSoft's API designer that interacts directly with your filesystem. Forked from sichvoge/api-designer-fs",
+  "main": "raml-editor.js",
   "keywords": [
     "raml",
     "api",
-    "designer"
+    "designer",
+    "editor"
   ],
   "bin": {
-    "api-designer-fs": "index.js"
+    "raml-editor": "raml-editor.js"
   },
   "dependencies": {
-    "api-designer": "git://github.com/mulesoft/api-designer.git",
+    "api-designer": "^0.4.1",
     "bluebird": "^3.4.1",
     "body-parser": "^1.15.2",
     "commander": "^2.9.0",
     "express": "^4.14.0",
     "mkdirp": "^0.5.1",
-    "request": "^2.75.0",
     "rimraf": "^2.5.4"
   },
-  "author": "Christian Vogel",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jsware/raml-editor"
+  },
+  "author": "John Scott",
   "license": "MIT"
 }
