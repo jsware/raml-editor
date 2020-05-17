@@ -16,8 +16,21 @@ There are several areas changed to enable accessing the local filesystem and oth
 It is not hosted on NPM (yet). For now if you want to use it on your own, you can follow those simple steps:
 
 1. Clone the repository
-2. Execute `cd api-editor`
+2. Execute `cd raml-editor`
 3. Execute `npm install`
-4. Execute `./api-editor.js examples/`
+4. Execute `./raml-editor.js examples/`
 
-Alternatively you can put `api-editor/bin` in your PATH so that api-editor works from where-ever you need.  If you don't specify a folder, the current directory is used. 
+Alternatively you can put `raml-editor/bin` in your PATH so that api-editor works from where-ever you need.  If you don't specify a folder, the current directory is used.
+
+## Usage
+
+```
+Usage: raml-editor [options] <location>
+
+Opens the RAML Editor using the local filesystem <location> folder.
+
+Options:
+  -V, --version         output the version number
+  -p, --port <integer>  listen on the specified port (default: 0)
+  -h, --help            output usage information
+```
