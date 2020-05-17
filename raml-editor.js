@@ -12,8 +12,8 @@ var spawn = require('child_process').spawn;
 program
   .version('1.0.0')
   .option('-p, --port <integer>', 'listen on the specified port', 0)
-  .arguments('<path>')
-  .description('Opens the API Editor using the local filesystem <path> which can be a file or folder.')
+  .arguments('<location>')
+  .description('Opens the RAML Editor using the local filesystem <location> folder.')
   .action(function(location, cmdObj) {
     cmdObj.location=location;
     launch(location, cmdObj.port)
