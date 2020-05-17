@@ -12,10 +12,11 @@ var spawn = require('child_process').spawn;
 //
 program
   .version('1.0.0')
-  .option('-p, --port <integer>', 'Listen on the specified port', 3000)
+  .option('-p, --port <integer>', 'listen on the specified port', 3000)
   .arguments('<path>')
   .description('Opens the API Editor using the local filesystem <path> which can be a file or folder.')
   .action(function(location, cmdObj) {
+    cmdObj.location=location;
     launch(location, cmdObj.port)
   })
   .parse(process.argv);
@@ -23,7 +24,7 @@ program
 //
 // Default to current working directory if no path provided.
 //
-if(program.path === undefined) {
+if(program.location === undefined) {
   launch('.', program.port)
 }
 
