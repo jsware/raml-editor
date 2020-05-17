@@ -1,20 +1,23 @@
-# API designer using local filesystem
+# RAML Editor using Local Filesystem
 
-This repository contains an implementation of the [api-designer](https://github.com/mulesoft/api-designer) using the local filesystem. As you might realize, I am only fetching the current `master` version as a dependency. 
+This repository contains an implementation of the [api-designer](https://github.com/mulesoft/api-designer) using the local filesystem. It is a fork of [sichvoge/api-designer-fs](https://github.com/sichvoge/api-designer-fs) with some refactoring and enhancements.
 
-There are two areas that I have changed to enable accessing the local filesystem:
+There are several areas changed to enable accessing the local filesystem and other improvements:
 
-1. provide an override for the default filesystem that is being used (browser cache) - find necessary code inside the `html` folder -
-2. expose local filesystem as HTTP endpoint - find necessary code inside the `store` folder -  
-
-This project is used to showcase how to enable the API designer to use the local filesystem. There might be problems so please be aware of that.
+1. Provide an override for the default filesystem that is being used (browser cache) - find necessary code inside the `html` folder - originally by _sichvoge_.
+2. Expose local filesystem as HTTP endpoint - find necessary code inside the `lib` folder - originally by _sichvoge_
+3. Refactored code. Fixed bug not sending dot files like .gitignore. Added additional debug statements. Removed seemingly redundant additional listener and multiple attempt to start web server.
+4. Added api-editor shell scripts that will automatically `npm install` if api-designer is missing.
+5. Ability to web server port (which now defaults to a random port to allow multiple copies to run).
+6. Made RAML folder optional and default to current directory so you can `cd my_api_folder && api-editor`.
 
 ## Installation
 
-It is not hosted on NPM and I am actually not planning to do it. Again, it's for demo purposes. If you still want to use it on your own, you can follow those simple steps:
+It is not hosted on NPM (yet). For now if you want to use it on your own, you can follow those simple steps:
 
 1. Clone the repository
-2. Execute `cd api-designer-fs`
+2. Execute `cd api-editor`
 3. Execute `npm install`
-4. Execute `npm link`
-5. Execute `api-designer-fs examples/`
+4. Execute `./api-editor.js examples/`
+
+Alternatively you can put `api-editor/bin` in your PATH so that api-editor works from where-ever you need.  If you don't specify a folder, the current directory is used. 
