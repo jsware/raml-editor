@@ -4,7 +4,6 @@ var express = require('express');
 var fs = require('fs');
 var path = require('path');
 var program = require('commander');
-//var ramlStore = require('./store/fileserver');
 var spawn = require('child_process').spawn;
 
 //
@@ -12,7 +11,7 @@ var spawn = require('child_process').spawn;
 //
 program
   .version('1.0.0')
-  .option('-p, --port <integer>', 'listen on the specified port', 3000)
+  .option('-p, --port <integer>', 'listen on the specified port', 0)
   .arguments('<path>')
   .description('Opens the API Editor using the local filesystem <path> which can be a file or folder.')
   .action(function(location, cmdObj) {
@@ -68,7 +67,11 @@ function launch(location, port) {
   });
 
   // Listen on localhost only.
-  app.listen(port, '127.0.0.1', () => spawn('open', [('http://localhost:' + port)]));
+  var listener = app.listen(port, '127.0.0.1', () => {
+    var url='http://localhost:' + listener.address().port;
+    console.log("Open " + url);
+    spawn('open', [(url)])
+  });
 }
 
 //
