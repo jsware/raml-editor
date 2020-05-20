@@ -1,4 +1,5 @@
 #! /usr/bin/env node
+'use strict';
 var debug = require('debug')('raml-editor')
 var express = require('express');
 var fs = require('fs');
