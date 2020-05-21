@@ -18,7 +18,7 @@ It is not hosted on NPM (yet). For now if you want to use it on your own, you ca
 1. Clone the repository
 2. Execute `cd raml-editor`
 3. Execute `npm install`
-4. Execute `./raml-editor.js examples/`
+4. Execute `./raml-editor.js examples`
 
 Alternatively you can put `raml-editor/bin` in your PATH so that api-editor works from where-ever you need.  If you don't specify a folder, the current directory is used.
 
