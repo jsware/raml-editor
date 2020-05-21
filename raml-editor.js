@@ -38,7 +38,7 @@ function launch(location, port) {
 
   app.get('/', function(req, res) {
     var file = path.join(__dirname, 'html/raml-editor.html')
-    debug('Serving HTML "%s"', file);
+    debug('sending "%s"', file);
     fs.readFile(file, 'utf-8', function(err, content) {
       return res.send(content);
     });
@@ -69,6 +69,7 @@ function launch(location, port) {
 
   // Listen on localhost only.
   var listener = app.listen(port, '127.0.0.1', () => {
+    debug('listening on "http://%s:%d"', listener.address().address, listener.address().port);
     var url='http://localhost:' + listener.address().port;
     console.log("Open " + url);
     spawn('open', [(url)])
